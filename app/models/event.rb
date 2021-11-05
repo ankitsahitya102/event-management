@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   validates :title, :start_time, :end_time, presence: true
   validate :check_end_time
 
+  accepts_nested_attributes_for :attendees
+
   private
 
   def check_end_time
