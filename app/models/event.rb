@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  has_many :attendees
+  has_many :users, through: :attendees
+  
   validates :title, :start_time, :end_time, presence: true
   validate :check_end_time
 
