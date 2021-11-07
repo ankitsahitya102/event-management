@@ -1,0 +1,1 @@
+json.partial! "invites/invite.json.jbuilder", invite: @invite
