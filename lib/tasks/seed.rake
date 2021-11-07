@@ -3,7 +3,7 @@ require 'csv'
 namespace :seed do
   desc 'Import csv data'
   task import_users_data_via_csv: :environment do
-    SmarterCSV.process(Rails.application.credentials[:USERS_CSV_FILE_PATH], { chunk_size: 10 }) do |chunk|
+    SmarterCSV.process(Rails.application.credentials[:USERS_CSV_FILE_PATH], { chunk_size: Rails.application.credentials[:CHUNK_SIZE] }) do |chunk|
       UsersImportWorker.perform_async(chunk)
     end
   end
@@ -16,7 +16,7 @@ namespace :seed do
       "users#rsvp": :invites_attributes
     }
 
-    SmarterCSV.process(Rails.application.credentials[:EVENTS_CSV_FILE_PATH], { chunk_size: 10, key_mapping: key_mapping }) do |chunk|
+    SmarterCSV.process(Rails.application.credentials[:EVENTS_CSV_FILE_PATH], { chunk_size: Rails.application.credentials[:CHUNK_SIZE], key_mapping: key_mapping }) do |chunk|
       EventsImportWorker.perform_async(chunk)
     end
   end
