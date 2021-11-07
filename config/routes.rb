@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  root 'home#dashboard_redirect'
+  get '/dashboard/*path', to: 'home#index'
+  get '/dashboard', to: 'home#index'
+
   resources :events, only: %i[create, index]
   resources :invites, only: %i[update]
   resources :users, only: %i[index]
