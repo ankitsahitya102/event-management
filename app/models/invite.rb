@@ -17,7 +17,7 @@ class Invite < ApplicationRecord
   private
 
   def set_default
-    self.rsvp_status = 'yes' unless self.rsvp_status.present?
+    self.rsvp_status = 'maybe' unless self.rsvp_status.present?
   end
 
   def update_overlapping_events_rsvp
