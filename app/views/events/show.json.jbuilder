@@ -1,1 +1,1 @@
-json.partial! "events/event.json.jbuilder", event: @event
+json.partial! "events/event.json.jbuilder", event: @event, with_invites: true

@@ -2,7 +2,7 @@ class EventsImportWorker
   include Sidekiq::Worker
 
   def perform(events)
-    eventsImportService = EventsImportService.new(events)
-    eventsImportService.process
+    events_import_service = EventsImportService.new(events)
+    events_import_service.process
   end
 end
