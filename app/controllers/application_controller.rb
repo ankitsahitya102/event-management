@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
-
   def check_params_present
     unless params[:start_date].present?
       render json: { error: 'Please provide a start date' }, status: :unprocessable_entity
