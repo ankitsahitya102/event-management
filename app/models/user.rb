@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :attendees
-  has_many :events, through: :attendees
+  has_many :invites
+  has_many :events, through: :invites
 
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
