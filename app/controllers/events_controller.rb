@@ -1,6 +1,4 @@
 class EventsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def create
     @event = Event.new(event_params)
     respond_to do |format|
