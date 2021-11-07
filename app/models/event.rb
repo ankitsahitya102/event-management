@@ -1,11 +1,11 @@
 class Event < ApplicationRecord
-  has_many :attendees
-  has_many :users, through: :attendees
+  has_many :invites
+  has_many :users, through: :invites
   
   validates :title, :start_time, :end_time, presence: true
   validate :check_end_time
 
-  accepts_nested_attributes_for :attendees
+  accepts_nested_attributes_for :invites
 
   private
 

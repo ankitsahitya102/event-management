@@ -13,7 +13,7 @@ namespace :seed do
       starttime: :start_time,
       endtime: :end_time,
       allday: :all_day,
-      "users#rsvp": :attendees_attributes
+      "users#rsvp": :invites_attributes
     }
 
     SmarterCSV.process(Rails.application.credentials[:EVENTS_CSV_FILE_PATH], { chunk_size: 10, key_mapping: key_mapping }) do |chunk|
