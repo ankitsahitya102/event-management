@@ -3,7 +3,7 @@ class CreateAttendees < ActiveRecord::Migration[5.2]
     create_table :attendees do |t|
       t.references :user
       t.references :event
-      t.integer :rsvp_status, default: :yes, null: false
+      t.integer :rsvp_status, default: 0, null: false
 
       t.timestamps
     end
