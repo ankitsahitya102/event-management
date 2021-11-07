@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   resources :events, only: %i[create]
+  resources :invites, only: %i[update]
 end
