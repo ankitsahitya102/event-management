@@ -1,0 +1,15 @@
+#app-root {
+  height: 100%;
+}
+
+.content-holder {
+  padding: 20px 24px 50px 24px;
+  height: 80vh;
+  
+  &.no-padding {
+    padding: 0;
+  }
+  &.white {
+    background: #fff;
+  }
+}
