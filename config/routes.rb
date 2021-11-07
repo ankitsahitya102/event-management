@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  resources :events, only: %i[create]
+  resources :events, only: %i[create, index]
   resources :invites, only: %i[update]
+  resources :users, only: %i[index]
+  get 'users/:id/available_slots' => 'users#available_slots'
 end

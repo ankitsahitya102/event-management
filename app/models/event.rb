@@ -9,8 +9,8 @@ class Event < ApplicationRecord
 
   accepts_nested_attributes_for :invites
 
-  scope :overlapping, -> (start_time, end_time) {
-    where("start_time < ? AND ? < end_time", end_time, start_time)
+  scope :overlapping, -> (start_date, end_date) {
+    where("start_time < ? AND ? < end_time", end_date.end_of_day, start_date.beginning_of_day)
   }
 
   private
