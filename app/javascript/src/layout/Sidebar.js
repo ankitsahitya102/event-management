@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Layout, Menu } from 'antd';
 import {
   CalendarOutlined,
-  CloseOutlined,
   HomeOutlined,
   UserOutlined
 } from '@ant-design/icons';
@@ -18,9 +17,9 @@ class Sidebar extends React.Component {
   }
 
   getActiveRoute = () => {
-    let activeRoute = this.props.route;
+    let activeRoute = this.props.route.split('/')[1];
     if (activeRoute === '/undefined') {
-      activeRoute = '/';
+      activeRoute = '';
     }
     return activeRoute;
   }
@@ -47,17 +46,17 @@ class Sidebar extends React.Component {
         <Menu theme="light"
           defaultSelectedKeys={[this.getActivePathname()]}
           mode="inline" selectedKeys={[activeRoute]}>
-          <Menu.Item key={'/'}>
+          <Menu.Item key={''}>
             <HomeOutlined />
             <span>Dashboard</span>
             <Link to={'/'} />
           </Menu.Item>
-          <Menu.Item key={'/events'}>
+          <Menu.Item key={'events'}>
             <CalendarOutlined />
             <span>Events</span>
             <Link to={'/events'} />
           </Menu.Item>
-          <Menu.Item key={'/users'}>
+          <Menu.Item key={'users'}>
             <UserOutlined />
             <span>Users</span>
             <Link to={'/users'} />
