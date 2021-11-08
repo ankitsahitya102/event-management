@@ -1,6 +1,8 @@
-Tables used: users, events, invites
-Used sidekiq for parallel async processing of jobs
-Used SmarterCSV gem to load large csv as chunks of rows in memory
+Tables used: users, events, invites<br />
+Used sidekiq for parallel async processing of jobs<br />
+Used SmarterCSV gem to load large csv as chunks of rows in memory<br />
+<br />
+For seeding data from csv first the file is loaded in small chunks of rows then a async job is created for each chunk. Sidekiq run those jobs.
 
 # Setup: 
  ## Clone git repo
@@ -15,7 +17,7 @@ Used SmarterCSV gem to load large csv as chunks of rows in memory
  ```
  view credentials.yml.sample file for sample credentials
  ## Setup database.yml file
- create config/database.yml
+ create config/database.yml<br />
  view database.yml.sample file for sample credentials
 
  ## Install gems
@@ -54,3 +56,6 @@ Used SmarterCSV gem to load large csv as chunks of rows in memory
   ```
   rails s
   ```
+  open ```http://localhost:3000```
+  created ui in React.js
+
