@@ -1,24 +1,56 @@
-# README
+Tables used: users, events, invites
+Used sidekiq for parallel async processing of jobs
+Used SmarterCSV gem to load large csv as chunks of rows in memory
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Setup: 
+ ## Clone git repo
+  use command 
+  ```
+  git clone https://github.com/ankitsahitya102/event-management.git
+  ```
+ ## Setup Credentials file
+ open credentials edit
+ ```
+ EDITOR=vim rails credentials:edit
+ ```
+ view credentials.yml.sample file for sample credentials
+ ## Setup database.yml file
+ create config/database.yml
+ view database.yml.sample file for sample credentials
 
-Things you may want to cover:
+ ## Install gems
+ ```
+ bundle install
+ ```
 
-* Ruby version
+ ## Setup database
+ ```
+ rails db:create
+ rails db:migrate
+ ```
 
-* System dependencies
+ ## start sidekiq
+ ```
+ bundle exec sidekiq
+ ```
 
-* Configuration
+  ## run seeds
+ ```
+  rake seed:import_users_data_via_csv
+  rake seed:import_events_data_via_csv
+ ```
+ ## Install packages
+ ```
+ yarn install
+ ```
 
-* Database creation
+  ## setup cronjob
+  ```
+  whenever --update-crontab
+  ```
+  used whenever to schedule a job that mark all completed events every hour
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ## run server
+  ```
+  rails s
+  ```
