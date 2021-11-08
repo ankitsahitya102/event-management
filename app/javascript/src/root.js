@@ -1,9 +1,14 @@
 import React from 'react';
 import Routes from './routes';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/rootReducer';
-const store = createStore(rootReducer);
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
 
 function App() {
   return (

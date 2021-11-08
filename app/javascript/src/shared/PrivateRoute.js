@@ -18,7 +18,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
           <Helmet titleTemplate="%s | Event Manager">
             <title></title>
           </Helmet>
-          <Layout style={{ height: '100vh' }}>
+          <Layout style={{ minHeight: '100vh' }}>
             <Sidebar
               route={window.location.pathname.replace("/dashboard", "")}
               open={true}
@@ -30,7 +30,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
                   <Component {...props} />
                 </div>
               </Content>
-              <Footer style={{ textAlign: 'center' }}>
+              <Footer style={{ paddingLeft: '220px', textAlign: 'center' }}>
                 <div className="footer-text">Event Manager©2021</div>
               </Footer>
             </Layout>
